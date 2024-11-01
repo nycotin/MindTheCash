@@ -1,1 +1,1 @@
-# mind-the-cash
+# MindTheCash
