@@ -1,0 +1,156 @@
+html {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #F8F4EA;
+    color: #A7727D;
+    box-sizing: content-box;
+}
+
+body {
+    font-family: inherit;
+    background-color: inherit;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#index-mask {
+    width: 20%;
+    height: 30%;
+    margin-top: 10%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8EAD8;
+    border-radius: 10%;
+    border: 1px solid #A7727D;
+}
+
+#index-mask h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+}
+
+.buttons a:hover {
+    color: #EDDBC7;
+    background-color: #A7727D;
+    padding: 10px;
+    border-radius: 10%;
+}
+
+#login, #register {
+    width: 25%;
+    height: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8EAD8;
+    border-radius: 10%;
+    border: 1px solid #A7727D;
+}
+
+#login h1, #register h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#login form, #register form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    border: none;
+}
+
+#login div, #register div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: center;
+}
+
+#login div label, #register div label {
+    margin-bottom: 5px;
+}
+
+#login input, #register input {
+    margin-bottom: 5px;
+    width: 100%;
+    color: inherit;
+}
+
+#login input::placeholder, #register input::placeholder {
+    color: inherit;
+}
+
+#login button, #register button {
+    background-color: #EDDBC7;
+    color: inherit;
+    margin-top: 5%;
+    padding: 10px;
+    width: 40%;
+}
+
+#login button:hover, #register button:hover {
+    color: #EDDBC7;
+    background-color: #A7727D;
+    padding: 10px;
+}
+
+p {
+    margin-top: 8%;
+    text-align: center;
+}
+
+a {
+    color: #A7727D;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    margin-top: 5%;
+}
+
+p.error {
+    color: #700707;
+    font-weight: 900;
+    padding: 1%;
+}
+
+input[class$='error'] {
+    background-color: #700707;
+}
+

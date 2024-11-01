@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     | Log In
+{% endblock %}
+
+{% block main %}
+    <div id="login">
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <div>
+            <label for="username">Username: </label>
+            <input autocomplete="off" class="form-control shadow-none border-0" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input class="form-control shadow-none border-0" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn" type="submit">Log In</button>
+    </form>
+    <p>You don't have an account yet?<br><a href="/register">Register here</a>!
+    </p>
+    </div>
+
+    <script src="/static/login-scripts.js"></script>
+{% endblock %}

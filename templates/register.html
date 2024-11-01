@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+| Register
+{% endblock %}
+
+{% block main %}
+    <div id="register">
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <div>
+            <label for="first-name">First Name<span class="asterisk">*</span>: </label>
+            <input autocomplete="off" class="form-control shadow-none border-0" id="firstname" name="firstname" placeholder="First Name" type="text">
+        </div>
+        <div>
+            <label for="last-name">Last Name<span class="asterisk">*</span>: </label>
+            <input autocomplete="off" class="form-control shadow-none border-0" id="lastname" name="lastname"
+                placeholder="Last Name" type="text">
+        </div>
+        <div>
+            <label for="email">Email<span class="asterisk">*</span>: </label>
+            <input autocomplete="off" class="form-control shadow-none border-0" id="email" name="email" placeholder="Email" type="email">
+        </div>
+        <div>
+            <label for="username">Username<span class="asterisk">*</span>: </label>
+            <input autocomplete="off" class="form-control shadow-none border-0" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div>
+            <label for="birthday">Birthday: </label>
+            <input autocomplete="off" class="form-control shadow-none border-0" id="birthday" name="birthday" min="1940-01-01" type="date">
+        </div>
+        <div>
+            <label for="password">Password<span class="asterisk">*</span>: </label>
+            <input class="form-control shadow-none border-0" id="password" name="password" placeholder="Password" type="password">
+            <label for="password-confirm">Password confirmation<span class="asterisk">*</span>: </label>
+            <input class="form-control shadow-none border-0" id="password-confirmation" name="password-confirmation" placeholder="Repeat password" type="password">
+        </div>
+        <button class="btn" type="submit">Register</button>
+    </form>
+    <p>Already got an account?<br><a href="/login">Go to Login</a>!
+    </p>
+    </div>
+
+    <script src="static/register-scripts.js"></script>
+{% endblock %}

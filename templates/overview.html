@@ -1,0 +1,129 @@
+{% extends "layout-app.html" %}
+
+{% block title %}
+     | Overview
+{% endblock %}
+
+{% block main %}
+        <div id="filter">
+            <button type="button" id="filter-btn" class="btn">Filter <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></button>
+            <div id="filter-form">
+                    <label for="flt-category">Category: </label>
+                    <select id="flt-category" name="category" class="filter">
+                        <option value="" selected>Select category</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Food&amp;Drinks">Food&amp;Drinks</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Pets">Pets</option>
+                        <option value="Personal Spending">Personal Spending</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label for="flt-trans_type">Transaction type: </label>
+                    <select id="flt-trans_type" name="trans_type" class="filter">
+                        <option value="" selected>Select category</option>
+                        <option value="Incoming">Incoming</option>
+                        <option value="Outgoing">Outgoing</option>
+                    </select><br>
+                    <label for="flt-start_date">Start date: </label>
+                    <input type="date" id="flt-start_date" name="start_date" value="" class="filter">
+                    <label for="flt-end_date">End date: </label>
+                    <input type="date" id="flt-end_date" name="end_date" value="" class="filter">
+                    <button type="submit" id="clear-btn" name="clear-btn" class="btn">Clear filter</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="data-overview">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Transaction Type</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for trans in transactions %}
+                    <tr id="{{ trans["id"] }}">
+                        <td id="name">{{ trans["name"] }}</td>
+                        <td id="category">{{ trans["category"] }}</td>
+                        <td id="trans_type">{{ trans["trans_type"] }}</td>
+                        <td id="amount">{{ trans["amount"] | euro }}</td>
+                        <td id="datetime">{{ trans["datetime"] }}</td>
+                        <td id="button">
+                            <button type="submit" id="del-btn" name="del-btn" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                    <tr id="#">
+                        <form action="/overview" method="post">
+                        <td>
+                            <input type="text" id="name" name="name" class="form-control shadow-none border-0" placeholder="Add name" required>
+                        </td>
+                        <td>
+                            <select id="category" name="category" class="form-control shadow-none border-0" required>
+                                <option value="" selected disabled>Select category</option>
+                                <option value="Grocery">Grocery</option>
+                                <option value="Housing">Housing</option>
+                                <option value="Food&amp;Drinks">Food&amp;Drinks</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Pets">Pets</option>
+                                <option value="Personal Spending">Personal Spending</option>
+                                <option value="Sport">Sport</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="trans_type" name="trans_type" class="form-control shadow-none border-0" required>
+                                <option value="" selected disabled>Select type</option>
+                                <option value="Incoming">Incoming</option>
+                                <option value="Outgoing">Outgoing</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" id="amount" name="amount" step="any" placeholder="Add amount" class="form-control shadow-none border-0" required>
+                        </td>
+                        <td>
+                            <input type="date" id="date" name="date" class="form-control shadow-none border-0">
+                        </td>
+                        <td>
+                            <button type="submit" id="add-btn" name="add-btn" class="btn"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg></button>
+                        </td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="totals">
+                <tr>
+                    <th>Subtotal Outgoing</th>
+                    <td id="sub-og">{{ subtotal_og | euro }}</td>
+                </tr>
+                <tr>
+                    <th>Subtotal Incoming</th>
+                    <td id="sub-ic">{{ subtotal_ic | euro }}</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <td id="total">{{ total | euro }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+
+    <script src="static/overview-scripts.js"></script>
+{% endblock %}
