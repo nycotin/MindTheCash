@@ -6,6 +6,17 @@ Everything mainly happens in the overview page, through which users can perform 
 The main components of this project were developed with the following languages/frameworks: HTML, CSS, JavaScript, jQuery, Bootstrap, Flask, Python, Jinja, AJAX, SQLite.
 Below is a detailed description and explanation of the compenents and the design of the app.
 
+#### How to run the Flask App
+1. Copy the repository on local computer with `https://github.com/nycotin/MindTheCash.git`;
+2. Install virtual environment with `py -3 -m venv .venv`;
+3. Activate virtual environment with `.venv/Scripts/activate`;
+4. Refresh terminal and run `pip install -r flask_app/requirements.txt`;
+5. Run `cd flask_app`;
+6. Run `flaks run` to start the server. The app will be available at `http://127.0.0.1:5000`;
+
+Press CTRL+C to shut the server down and run `deactivate` to deactivate the virtual environment.
+
+
 ### Structure - HTML / Jinja / JavaScript
 #### layout.html
 Layout.html is the template used for the three pages that are accessible without login (i. e. index.html, login.html, register.html). It has a very simple structure without any navbar and it only includes a link to the style.css file and the links to bootstrap and googlefonts.

@@ -1,0 +1,6 @@
+.venv/
+
+*.pyc
+__pycache__/
+
+flaskr/flask_session
