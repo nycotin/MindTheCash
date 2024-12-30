@@ -12,7 +12,7 @@ Below is a detailed description and explanation of the compenents and the design
 3. Activate virtual environment with `.venv/Scripts/activate`;
 4. Refresh terminal and run `pip install -r flask_app/requirements.txt`;
 5. Run `cd flask_app`;
-6. Run `flaks run` to start the server. The app will be available at `http://127.0.0.1:5000`;
+6. Run `flask run` to start the server. The app will be available at `http://127.0.0.1:5000`;
 
 Press CTRL+C to shut the server down and run `deactivate` to deactivate the virtual environment.
 
