@@ -98,7 +98,15 @@ def register():
             user_inputs["birthday"],
         )
 
-        return redirect("/login")
+        # Perform login after successful registration
+        # Clear previous sessions
+        session.clear()
+
+        # Remember user
+        rows = db.execute("SELECT * FROM users WHERE username = ?;", user_inputs["username"])
+        session["user_id"] = rows[0]["id"]
+
+        return redirect("/overview")
 
     else:
         return render_template("register.html")
